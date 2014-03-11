@@ -16,11 +16,9 @@
   </div>
 
   <div class="alert alert-danger">
-    <p><strong>Warning!</strong></p>
+    <p><strong>Warning! Do not use this app unless prompted by a Scalr instructor during a training session</strong></p>
     <p>
-      Only use this app for proof of concepts and trainings!
-      It's not secure to use this application with actual infrastructure.
-      API credentials are not protected when you access this application over HTTP!
+      API credentials are not protected and visible in the clear when you access this application.
     </p>
   </div>
 
@@ -44,10 +42,10 @@
         {{ wtf.form_errors(form, hiddens="only") }}
 
         {{ wtf.form_field(form.api_key) }}
-        {{ wtf.form_field(form.secret_key) }}
+        {{ wtf.form_field(form.api_secret) }}
+        {{ wtf.form_field(form.environment_id) }}
         {{ wtf.form_field(form.server_id) }}
         {{ wtf.form_field(form.event_name) }}
-        {{ wtf.form_field(form.environment_id) }}
 
         <div class="form-group">
           <button type="submit" class="btn btn-default">Make API Call</button>

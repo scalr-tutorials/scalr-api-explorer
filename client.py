@@ -14,11 +14,11 @@ API_AUTH_VERSION = '3'
 FIRE_CUSTOM_EVENT = "FireCustomEvent"
 
 
-def fire_custom_event(api_key, secret_key, server_id, event_name, environment_id=None):
+def fire_custom_event(api_key, api_secret, server_id, event_name, environment_id=None):
     timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
     api_key = api_key.encode("utf-8")
-    secret_key = secret_key.encode("utf-8")
+    api_secret = api_secret.encode("utf-8")
 
     params = {
         "Action": FIRE_CUSTOM_EVENT,
@@ -28,7 +28,7 @@ def fire_custom_event(api_key, secret_key, server_id, event_name, environment_id
         "AuthVersion": API_AUTH_VERSION,
         "Timestamp": timestamp,
         "KeyID": api_key,
-        "Signature":  base64.b64encode(hmac.new(secret_key, ":".join([FIRE_CUSTOM_EVENT, api_key, timestamp]), hashlib.sha256).digest()),
+        "Signature":  base64.b64encode(hmac.new(api_secret, ":".join([FIRE_CUSTOM_EVENT, api_key, timestamp]), hashlib.sha256).digest()),
     }
 
     if environment_id is not None:
