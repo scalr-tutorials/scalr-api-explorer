@@ -1,11 +1,42 @@
 {% extends "bootstrap/base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
+{% block head %}
+{{super()}}
+<link type="image/x-icon" href="/static/favicon.ico" rel="shortcut icon" />
+{% endblock head %}
+
 {% block title %}FireCustomEvent API Client{% endblock %}
 
 {% block content %}
 <div class="container">
-  <h1>Make API Call</h1>
+  <div class="page-header">
+    <h1>FireCustomEvent API Client</h1>
+    <p>Use this app to make FireCustomEvent API Calls on your behalf.</p>
+  </div>
+
+  <div class="alert alert-danger">
+    <p><strong>Warning!</strong></p>
+    <p>
+      Only use this app for proof of concepts and trainings!
+      It's not secure to use this application with actual infrastructure.
+      API credentials are not protected when you access this application over HTTP!
+    </p>
+  </div>
+
+  {% if code %}
+  <div class="container-fluid">
+    <div class="row">
+      <h2>API Call Results</h2>
+      <h3>Status Code</h3>
+      <pre>{{ code }}</pre>
+      <h3>Response Body</h3>
+      <pre>{{ body }}</pre>
+    </div>
+  </div>
+  {% endif %}
+
+  <h2>Make API Call</h2>
   <div class="container-fluid">
     <div class="row">
       <form class="form" method="post" role="form">
@@ -24,17 +55,5 @@
       </form>
     </div>
   </div>
-
-  {% if code %}
-  <div class="container-fluid">
-    <div class="row">
-      <h1>API Call Results</h1>
-      <h2>Status Code</h2>
-      <pre>{{ code }}</pre>
-      <h2>Response Body</h2>
-      <pre>{{ body }}</pre>
-    </div>
-  </div>
-  {% endif %}
 </div>
 {% endblock %}
