@@ -1,0 +1,7 @@
+flask
+mock
+gevent
+gunicorn
+honcho
+Flask-WTF
+git+https://github.com/gwik/geventhttpclient.git
