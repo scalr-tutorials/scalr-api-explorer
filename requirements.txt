@@ -3,5 +3,6 @@ mock
 gevent
 gunicorn
 honcho
+Flask-Bootstrap
 Flask-WTF
 git+https://github.com/gwik/geventhttpclient.git

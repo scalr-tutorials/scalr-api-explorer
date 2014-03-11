@@ -1,9 +1,17 @@
 import os
-import forms, client
+
 from flask import Flask, render_template, request, redirect, url_for
+from flask_bootstrap import Bootstrap
 
-app = Flask(__name__)
+import forms, client
 
+
+def create_app():
+    app = Flask(__name__)
+    Bootstrap(app)
+    return app
+
+app = create_app()
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
 
 ###
