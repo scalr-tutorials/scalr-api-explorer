@@ -4,6 +4,7 @@
 {% block head %}
 {{super()}}
 <link type="image/x-icon" href="/static/favicon.ico" rel="shortcut icon" />
+<link href="/code-style.css" rel="stylesheet" media="screen">
 {% endblock head %}
 
 {% block title %}FireCustomEvent API Client{% endblock %}
@@ -22,14 +23,11 @@
     </p>
   </div>
 
-  {% if code %}
+  {% if body %}
   <div class="container-fluid">
     <div class="row">
       <h2>API Call Results</h2>
-      <h3>Status Code</h3>
-      <pre>{{ code }}</pre>
-      <h3>Response Body</h3>
-      <pre>{{ body }}</pre>
+      {{ body|safe }}
     </div>
   </div>
   {% endif %}

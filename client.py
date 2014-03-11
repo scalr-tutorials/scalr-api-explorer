@@ -1,10 +1,11 @@
 #coding:utf-8
-from geventhttpclient import HTTPClient
-from geventhttpclient.url import URL
 import datetime
 import base64
 import hmac
 import hashlib
+
+from geventhttpclient import HTTPClient
+from geventhttpclient.url import URL
 
 
 API_URL = 'https://api.scalr.net/'
