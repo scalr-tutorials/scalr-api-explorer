@@ -12,28 +12,22 @@ API_URL = 'https://api.scalr.net/'
 API_VERSION = '2.3.0'
 API_AUTH_VERSION = '3'
 
-FIRE_CUSTOM_EVENT = "FireCustomEvent"
-
-
-def fire_custom_event(api_key, api_secret, server_id, event_name, environment_id=None):
+def fire_custom_event(api_key, api_secret, api_method, environment_id, api_call_data):
     timestamp = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
     api_key = api_key.encode("utf-8")
     api_secret = api_secret.encode("utf-8")
 
     params = {
-        "Action": FIRE_CUSTOM_EVENT,
-        "EventName": event_name,
-        "ServerID": server_id,
+        "Action": api_method,
+        "EnvID": environment_id,
         "Version": API_VERSION,
         "AuthVersion": API_AUTH_VERSION,
         "Timestamp": timestamp,
         "KeyID": api_key,
-        "Signature":  base64.b64encode(hmac.new(api_secret, ":".join([FIRE_CUSTOM_EVENT, api_key, timestamp]), hashlib.sha256).digest()),
+        "Signature":  base64.b64encode(hmac.new(api_secret, ":".join([api_method, api_key, timestamp]), hashlib.sha256).digest()),
     }
-
-    if environment_id is not None:
-      params["EnvID"] = environment_id
+    params.update(api_call_data)
 
     url = URL(API_URL)
 
@@ -48,4 +42,4 @@ def fire_custom_event(api_key, api_secret, server_id, event_name, environment_id
 
     http.close()
 
-    return code, body
+    return url, code, body

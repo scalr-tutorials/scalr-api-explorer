@@ -1,0 +1,452 @@
+{
+    "FireCustomEvent": {
+        "ServerID": {
+            "optional": false
+        },
+        "EventName": {
+            "optional": false
+        },
+        "Params": {
+            "optional": true
+        }
+    },
+    "FarmGetDetails": {
+        "FarmID": {
+            "optional": false
+        }
+    },
+    "FarmGetDnsEndpoints": {
+        "FarmID": {
+            "optional": false
+        }
+    },
+    "FarmAddRole": {
+        "Alias": {
+            "optional": false
+        },
+        "FarmID": {
+            "optional": false
+        },
+        "RoleID": {
+            "optional": false
+        },
+        "CloudName": {
+            "optional": false
+        },
+        "CloudLocation": {
+            "optional": false
+        },
+        "Configuration": {
+            "optional": false
+        }
+    },
+    "FarmRemoveRole": {
+        "FarmID": {
+            "optional": false
+        },
+        "FarmRoleID": {
+            "optional": false
+        }
+    },
+    "FarmRemove": {
+        "FarmID": {
+            "optional": false
+        }
+    },
+    "FarmCreate": {
+        "Name": {
+            "optional": false
+        },
+        "Description": {
+            "optional": true
+        }
+    },
+    "FarmClone": {
+        "FarmID": {
+            "optional": false
+        }
+    },
+    "ScriptingLogsList": {
+        "FarmID": {
+            "optional": false
+        },
+        "ServerID": {
+            "optional": true
+        },
+        "EventID": {
+            "optional": true
+        },
+        "StartFrom": {
+            "optional": true
+        },
+        "RecordsLimit": {
+            "optional": true
+        }
+    },
+    "FarmRoleParametersList": {
+        "FarmRoleID": {
+            "optional": false
+        }
+    },
+    "FarmRoleUpdateParameterValue": {
+        "FarmRoleID": {
+            "optional": false
+        },
+        "ParamName": {
+            "optional": false
+        },
+        "ParamValue": {
+            "optional": false
+        }
+    },
+    "EnvironmentsList": [
+
+    ],
+    "ServerGetExtendedInformation": {
+        "ServerID": {
+            "optional": false
+        }
+    },
+    "GlobalVariableSet": {
+        "ParamName": {
+            "optional": false
+        },
+        "ParamValue": {
+            "optional": false
+        },
+        "FarmRoleID": {
+            "optional": true
+        },
+        "FarmID": {
+            "optional": true
+        },
+        "ServerID": {
+            "optional": true
+        }
+    },
+    "GlobalVariablesList": {
+        "ServerID": {
+            "optional": true
+        },
+        "FarmID": {
+            "optional": true
+        },
+        "FarmRoleID": {
+            "optional": true
+        },
+        "RoleID": {
+            "optional": true
+        }
+    },
+    "DmSourcesList": [
+
+    ],
+    "DmSourceCreate": {
+        "Type": {
+            "optional": false
+        },
+        "URL": {
+            "optional": false
+        },
+        "AuthLogin": {
+            "optional": true
+        },
+        "AuthPassword": {
+            "optional": true
+        }
+    },
+    "DmApplicationCreate": {
+        "Name": {
+            "optional": false
+        },
+        "SourceID": {
+            "optional": false
+        },
+        "PreDeployScript": {
+            "optional": true
+        },
+        "PostDeployScript": {
+            "optional": true
+        }
+    },
+    "DmApplicationsList": [
+
+    ],
+    "DmDeploymentTasksList": {
+        "FarmRoleID": {
+            "optional": true
+        },
+        "ApplicationID": {
+            "optional": true
+        },
+        "ServerID": {
+            "optional": true
+        }
+    },
+    "DmDeploymentTaskGetLog": {
+        "DeploymentTaskID": {
+            "optional": false
+        },
+        "StartFrom": {
+            "optional": true
+        },
+        "RecordsLimit": {
+            "optional": true
+        }
+    },
+    "DmDeploymentTaskGetStatus": {
+        "DeploymentTaskID": {
+            "optional": false
+        }
+    },
+    "DmApplicationDeploy": {
+        "ApplicationID": {
+            "optional": false
+        },
+        "FarmRoleID": {
+            "optional": false
+        },
+        "RemotePath": {
+            "optional": false
+        }
+    },
+    "FarmsList": [
+
+    ],
+    "ApacheVhostCreate": {
+        "DomainName": {
+            "optional": false
+        },
+        "FarmID": {
+            "optional": false
+        },
+        "FarmRoleID": {
+            "optional": false
+        },
+        "DocumentRootDir": {
+            "optional": false
+        },
+        "EnableSSL": {
+            "optional": false
+        },
+        "SSLPrivateKey": {
+            "optional": true
+        },
+        "SSLCertificate": {
+            "optional": true
+        }
+    },
+    "ApacheVhostsList": [
+
+    ],
+    "DNSZonesList": [
+
+    ],
+    "DNSZoneRecordAdd": {
+        "ZoneName": {
+            "optional": false
+        },
+        "Type": {
+            "optional": false
+        },
+        "TTL": {
+            "optional": false
+        },
+        "Name": {
+            "optional": false
+        },
+        "Value": {
+            "optional": false
+        },
+        "Priority": {
+            "optional": true
+        },
+        "Weight": {
+            "optional": true
+        },
+        "Port": {
+            "optional": true
+        }
+    },
+    "DNSZoneRecordRemove": {
+        "ZoneName": {
+            "optional": false
+        },
+        "RecordID": {
+            "optional": false
+        }
+    },
+    "DNSZoneRecordsList": {
+        "ZoneName": {
+            "optional": false
+        }
+    },
+    "DNSZoneCreate": {
+        "DomainName": {
+            "optional": false
+        },
+        "FarmID": {
+            "optional": true
+        },
+        "FarmRoleID": {
+            "optional": true
+        }
+    },
+    "FarmTerminate": {
+        "FarmID": {
+            "optional": false
+        },
+        "KeepEBS": {
+            "optional": false
+        },
+        "KeepEIP": {
+            "optional": false
+        },
+        "KeepDNSZone": {
+            "optional": false
+        }
+    },
+    "FarmLaunch": {
+        "FarmID": {
+            "optional": false
+        }
+    },
+    "FarmGetStats": {
+        "FarmID": {
+            "optional": false
+        },
+        "Date": {
+            "optional": true
+        }
+    },
+    "EventsList": {
+        "FarmID": {
+            "optional": false
+        },
+        "StartFrom": {
+            "optional": true
+        },
+        "RecordsLimit": {
+            "optional": true
+        }
+    },
+    "LogsList": {
+        "FarmID": {
+            "optional": false
+        },
+        "ServerID": {
+            "optional": true
+        },
+        "StartFrom": {
+            "optional": true
+        },
+        "RecordsLimit": {
+            "optional": true
+        }
+    },
+    "ScriptGetDetails": {
+        "ScriptID": {
+            "optional": false
+        },
+        "ShowContent": {
+            "optional": true
+        },
+        "Revision": {
+            "optional": true
+        }
+    },
+    "ScriptExecute": {
+        "ScriptID": {
+            "optional": false
+        },
+        "Timeout": {
+            "optional": false
+        },
+        "Async": {
+            "optional": false
+        },
+        "FarmID": {
+            "optional": false
+        },
+        "FarmRoleID": {
+            "optional": true
+        },
+        "ServerID": {
+            "optional": true
+        },
+        "Revision": {
+            "optional": true
+        },
+        "ConfigVariables": {
+            "optional": true
+        }
+    },
+    "RolesList": {
+        "Platform": {
+            "optional": true
+        },
+        "ImageID": {
+            "optional": true
+        },
+        "Name": {
+            "optional": true
+        },
+        "Prefix": {
+            "optional": true
+        }
+    },
+    "ScriptsList": [
+
+    ],
+    "Hello": [
+
+    ],
+    "StatisticsGetGraphURL": {
+        "ObjectType": {
+            "optional": false
+        },
+        "ObjectID": {
+            "optional": false
+        },
+        "WatcherName": {
+            "optional": false
+        },
+        "GraphType": {
+            "optional": false
+        }
+    },
+    "BundleTaskGetStatus": {
+        "BundleTaskID": {
+            "optional": false
+        }
+    },
+    "ServerImageCreate": {
+        "ServerID": {
+            "optional": false
+        },
+        "RoleName": {
+            "optional": false
+        }
+    },
+    "ServerReboot": {
+        "ServerID": {
+            "optional": false
+        }
+    },
+    "ServerLaunch": {
+        "FarmRoleID": {
+            "optional": false
+        },
+        "IncreaseMaxInstances": {
+            "optional": true
+        }
+    },
+    "ServerTerminate": {
+        "ServerID": {
+            "optional": false
+        },
+        "DecreaseMinInstancesSetting": {
+            "optional": true
+        }
+    }
+}
