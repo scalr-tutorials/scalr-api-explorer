@@ -14,4 +14,4 @@ class APIForm(Form):
     api_secret = TextField('Secret Key', validators=[DataRequired()])
     environment_id = TextField('Environment ID (Optional)')
     method = SelectField("API Method", choices=method_choices, validators=[DataRequired()])
-    no_call = HiddenField("No API Call", default="0")
+    no_call = HiddenField("No API Call")

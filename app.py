@@ -32,23 +32,26 @@ STORED_KEYS = ["api_key", "api_secret", "method", "environment_id"]
 def home():
     """Render website's home page."""
     kwargs = dict(((k, session.get(k)) for k in STORED_KEYS))
+
     api_only_form = forms.APIForm(**kwargs)
-
-    if api_only_form.validate_on_submit():
-        # Save data
-        for key in STORED_KEYS:
-            session[key] = getattr(api_only_form, key).data
-
     skip_api_call = api_only_form.no_call.data == "1"
 
-    # Form for the actual API Call
-    class CompleteForm(forms.APIForm):
-        pass
+    # Save configuration keys
+    for key in STORED_KEYS:
+        field = getattr(api_only_form, key)
+        if field.validate(api_only_form):
+            session[key] = field.data
 
+    # Set the API method to a default if required
     if api_only_form.method.validate(api_only_form):
         api_call = api_only_form.method.data
     else:
         api_call = DEFAULT_API_CALL
+
+
+    # Form for the actual API Call
+    class CompleteForm(forms.APIForm):
+        pass
 
     for field, options in api.API_STRUCTURE.get(api_call, {}).items():
         validators = []
@@ -56,6 +59,9 @@ def home():
             validators.append(DataRequired())
         setattr(CompleteForm, field, TextField(field, validators=validators))
     form = CompleteForm(**kwargs)
+
+    # Set skip API call to False. We only want to skip one API call
+    form.no_call.data = "0"
 
     if not skip_api_call and form.validate_on_submit():
         # We need to extract the data from the form
