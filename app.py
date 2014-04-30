@@ -2,11 +2,14 @@
 import os
 import StringIO
 
-import lxml.etree as etree
 from flask import Flask, make_response, render_template, request, redirect, url_for, session
 from flask_bootstrap import Bootstrap
+from flask_sslify import SSLify
+
 from wtforms import TextField, SelectField
 from wtforms.validators import DataRequired
+
+import lxml.etree as etree
 
 from pygments import highlight
 from pygments import lexers
@@ -22,6 +25,7 @@ def create_app():
 
 app = create_app()
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')  #TODO
+sslify = SSLify(app)
 
 formatter = formatters.HtmlFormatter(linenos=True)
 

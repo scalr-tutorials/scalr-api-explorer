@@ -8,3 +8,4 @@ Flask-WTF
 git+https://github.com/gwik/geventhttpclient.git@a1800e90efb6b9b33439deefb8df4df0a09183e5
 lxml
 pygments
+Flask-SSLify
