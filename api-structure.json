@@ -30,7 +30,7 @@
         "RoleID": {
             "optional": false
         },
-        "CloudName": {
+        "Platform": {
             "optional": false
         },
         "CloudLocation": {
@@ -121,6 +121,9 @@
             "optional": true
         },
         "ServerID": {
+            "optional": true
+        },
+        "RoleID": {
             "optional": true
         }
     },
